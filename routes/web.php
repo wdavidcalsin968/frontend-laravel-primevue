@@ -24,6 +24,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/datatable', function () {
+    return Inertia::render('Datatable');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
