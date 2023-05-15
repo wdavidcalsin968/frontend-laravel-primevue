@@ -14,7 +14,7 @@ const logout = () => {
 </script>
 
 <template>
-    <div class="bg-blue-600 h-20 pl md:pl-72 fixed top-0 right-0 w-full">
+    <div class="bg-[#202A38] h-20 pl md:pl-72 fixed top-0 right-0 w-full">
         <div
             class="h-full w-full flex justify-between md:justify-end items-center px-4"
         >
@@ -23,7 +23,7 @@ const logout = () => {
                     <h2 class="text-center pb-8 text-xl font-bold">MENU</h2>
                     <PanelMenu :model="items" />
                 </Sidebar>
-                <Button icon="pi pi-arrow-right" @click="visible = true" />
+                <Button icon="pi pi-align-left" @click="visible = true" />
             </div>
             <form @submit.prevent="logout">
                 <Button label="Logout" icon="pi pi-sign-out" type="submit" />
