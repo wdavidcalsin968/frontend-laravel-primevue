@@ -9,6 +9,7 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import "primevue/resources/themes/lara-light-indigo/theme.css";     
 //core
 import "primevue/resources/primevue.min.css";
+import 'primeicons/primeicons.css';
 
 import PrimeVue from 'primevue/config';
 
