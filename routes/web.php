@@ -28,6 +28,10 @@ Route::get('/datatable', function () {
     return Inertia::render('Datatable');
 });
 
+Route::get('/calendars', function () {
+    return Inertia::render('Calendars');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

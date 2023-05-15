@@ -2,6 +2,7 @@
 import AppLayout from "@/Layouts/AppLayout.vue";
 import Welcome from "@/Components/Welcome.vue";
 import DataTable from "primevue/datatable";
+import Calendar from "primevue/calendar";
 import Column from "primevue/column";
 </script>
 
@@ -19,37 +20,18 @@ import Column from "primevue/column";
             >
                 <!-- <Welcome /> -->
                 <h2 class="uppercase text-3xl font-bold text-gray-800">
-                    Bienvenidos a Calendarios
+                    Calendarios
                 </h2>
-                <div class="card">
-                    <DataTable
-                        :value="customers"
-                        paginator
-                        :rows="7"
-                        :rowsPerPageOptions="[5, 10, 20, 50]"
-                        tableStyle="min-width: 50rem"
-                    >
-                        <Column
-                            field="name"
-                            header="Name"
-                            style="width: 25%"
-                        ></Column>
-                        <Column
-                            field="country.name"
-                            header="Country"
-                            style="width: 25%"
-                        ></Column>
-                        <Column
-                            field="company"
-                            header="Company"
-                            style="width: 25%"
-                        ></Column>
-                        <Column
-                            field="representative.name"
-                            header="Representative"
-                            style="width: 25%"
-                        ></Column>
-                    </DataTable>
+                <div class="card flex gap-4 flex-wrap">
+                    <Calendar v-model="date1" dateFormat="dd/mm/yy" />
+                    <Calendar v-model="date2" showIcon />
+                    <Calendar
+                        v-model="date3"
+                        :minDate="minDate"
+                        :maxDate="maxDate"
+                        :manualInput="false"
+                    />
+                    <Calendar v-model="date4" inline showWeek />
                 </div>
 
                 <!-- <Button label="Check" icon="pi pi-check" /> -->
@@ -59,127 +41,32 @@ import Column from "primevue/column";
 </template>
 
 <script>
+import { ref } from "vue";
+
+let today = new Date();
+let month = today.getMonth();
+let year = today.getFullYear();
+let prevMonth = month === 0 ? 11 : month - 1;
+let prevYear = prevMonth === 11 ? year - 1 : year;
+let nextMonth = month === 11 ? 0 : month + 1;
+let nextYear = nextMonth === 0 ? year + 1 : year;
+
+const date1 = ref();
+const date2 = ref();
+const date3 = ref();
+const date4 = ref();
+
+const minDate = ref(new Date());
+const maxDate = ref(new Date());
+
+minDate.value.setMonth(prevMonth);
+minDate.value.setFullYear(prevYear);
+maxDate.value.setMonth(nextMonth);
+maxDate.value.setFullYear(nextYear);
+
 export default {
-    data() {
-        return {
-            count: 0,
-            customers: [
-                {
-                    name: "John Doe",
-                    country: { name: "United States" },
-                    company: "ABC Inc.",
-                    representative: { name: "Jane Smith" },
-                },
-                {
-                    name: "Alice Brown",
-                    country: { name: "Canada" },
-                    company: "XYZ Corp.",
-                    representative: { name: "Bob Johnson" },
-                },
-                {
-                    name: "John Doe",
-
-                    country: { name: "United States" },
-
-                    company: "ABC Inc.",
-
-                    representative: { name: "Jane Smith" },
-                },
-
-                {
-                    name: "Alice Brown",
-
-                    country: { name: "Canada" },
-
-                    company: "XYZ Corp.",
-
-                    representative: { name: "Bob Johnson" },
-                },
-
-                {
-                    name: "Mary Smith",
-
-                    country: { name: "Australia" },
-
-                    company: "DEF Corp.",
-
-                    representative: { name: "John Adams" },
-                },
-
-                {
-                    name: "David Lee",
-
-                    country: { name: "South Korea" },
-
-                    company: "GHI Inc.",
-
-                    representative: { name: "Sarah Kim" },
-                },
-
-                {
-                    name: "Juan Perez",
-
-                    country: { name: "Mexico" },
-
-                    company: "JKL Corp.",
-
-                    representative: { name: "Maria Garcia" },
-                },
-
-                {
-                    name: "Mohammed Ali",
-
-                    country: { name: "Egypt" },
-
-                    company: "MNO Inc.",
-
-                    representative: { name: "Fatima Ahmed" },
-                },
-
-                {
-                    name: "Hans Schmidt",
-
-                    country: { name: "Germany" },
-
-                    company: "PQR Corp.",
-
-                    representative: { name: "Anna Mueller" },
-                },
-
-                {
-                    name: "Yuki Nakamura",
-
-                    country: { name: "Japan" },
-
-                    company: "STU Inc.",
-
-                    representative: { name: "Taro Yamada" },
-                },
-
-                {
-                    name: "Maria Rodriguez",
-
-                    country: { name: "Spain" },
-
-                    company: "VWX Corp.",
-
-                    representative: { name: "Carlos Sanchez" },
-                },
-
-                {
-                    name: "Lena Svensson",
-
-                    country: { name: "Sweden" },
-
-                    company: "YZA Inc.",
-
-                    representative: { name: "Erik Johansson" },
-                },
-            ],
-        };
-    },
     components: {
-        DataTable,
+        Calendar,
     },
 };
 </script>

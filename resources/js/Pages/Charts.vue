@@ -1,58 +1,34 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import Welcome from "@/Components/Welcome.vue";
+import DataTable from "primevue/datatable";
 import Chart from "primevue/chart";
+import Column from "primevue/column";
 </script>
 
 <template>
     <AppLayout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
+                Datatable
             </h2>
         </template>
 
         <div>
             <div
-                class="bg-white min-h-screen overflow-hidden shadow-xl sm:rounded-lg p-4 flex flex-col gap-7"
+                class="bg-white min-h-screen overflow-hidden shadow-xl sm:rounded-lg p-4 flex flex-col gap-8"
             >
                 <!-- <Welcome /> -->
-                <h2 class="uppercase text-3xl font-bold">
-                    Bienvenidos a Dashboard
+                <h2 class="uppercase text-3xl font-bold text-gray-800">
+                    Bienvenidos a Datatable
                 </h2>
-                <div class="flex gap-4">
+                <div class="card">
                     <Chart
                         type="bar"
                         :data="chartData"
                         :options="chartOptions"
-                        class="flex-1"
-                    />
-                    <Chart
-                        type="pie"
-                        :data="chartData"
-                        :options="chartOptions"
-                        class="flex-1 w-full md:w-30rem"
                     />
                 </div>
-                <div class="text-black p-2">
-                    <h2 class="uppercase font-bold">Count: {{ count }}</h2>
-                    <div class="flex gap-3">
-                        <button
-                            @click="count++"
-                            class="p-2 bg-blue-600 rounded-md text-white"
-                        >
-                            increment
-                        </button>
-                        <button
-                            @click="count--"
-                            class="p-2 bg-blue-600 rounded-md text-white"
-                        >
-                            decrement
-                        </button>
-                    </div>
-                </div>
-
-                <!-- <Button label="Check" icon="pi pi-check" /> -->
             </div>
         </div>
     </AppLayout>
@@ -94,11 +70,6 @@ const chartOptions = ref({
 export default {
     components: {
         Chart,
-    },
-    data() {
-        return {
-            count: 0,
-        };
     },
 };
 </script>

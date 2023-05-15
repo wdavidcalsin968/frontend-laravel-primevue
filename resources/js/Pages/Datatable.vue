@@ -19,7 +19,7 @@ import Column from "primevue/column";
             >
                 <!-- <Welcome /> -->
                 <h2 class="uppercase text-3xl font-bold text-gray-800">
-                    Bienvenidos a Datatable
+                    Datatable
                 </h2>
                 <div class="card">
                     <DataTable
@@ -33,21 +33,25 @@ import Column from "primevue/column";
                             field="name"
                             header="Name"
                             style="width: 25%"
+                            sortable
                         ></Column>
                         <Column
                             field="country.name"
                             header="Country"
                             style="width: 25%"
+                            sortable
                         ></Column>
                         <Column
                             field="company"
                             header="Company"
                             style="width: 25%"
+                            sortable
                         ></Column>
                         <Column
                             field="representative.name"
                             header="Representative"
                             style="width: 25%"
+                            sortable
                         ></Column>
                     </DataTable>
                 </div>
