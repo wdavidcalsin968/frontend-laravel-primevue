@@ -14,7 +14,7 @@ const logout = () => {
 </script>
 
 <template>
-    <div class="bg-[#202A38] h-20 pl md:pl-72 fixed top-0 right-0 w-full">
+    <div class="bg-[#018AED] h-20 pl md:pl-72 fixed top-0 right-0 w-full">
         <div
             class="h-full w-full flex justify-between md:justify-end items-center px-4"
         >

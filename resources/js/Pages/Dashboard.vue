@@ -6,19 +6,20 @@ import Welcome from "@/Components/Welcome.vue";
 <template>
     <AppLayout title="Dashboard">
         <template #header>
-            <h2
-                class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"
-            >
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Dashboard
             </h2>
         </template>
 
         <div>
             <div
-                class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg"
+                class="bg-white min-h-screen overflow-hidden shadow-xl sm:rounded-lg p-4"
             >
-                <Welcome />
-                <div class="text-white p-2">
+                <!-- <Welcome /> -->
+                <h2 class="uppercase text-3xl font-bold">
+                    Bienvenidos a Dashboard
+                </h2>
+                <div class="text-black p-2">
                     <h2>Count: {{ count }}</h2>
                     <button @click="count++" class="p-2 bg-blue-600">
                         increment

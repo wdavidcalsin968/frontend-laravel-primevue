@@ -1,25 +1,17 @@
 <script setup>
 import PanelMenu from "primevue/panelmenu";
+import PanelMenuItem from "primevue/panelmenu";
 </script>
 
 <template>
     <div
-        class="w-72 bg-[#202A38] h-screen px-1 fixed top-0 left-0 hidden md:block border-r-[1px] border-gray-700 text-white overflow-auto"
+        class="w-72 bg-[#4B4D5A] h-screen px-2 fixed top-0 left-0 hidden md:block border-r-[1px] border-gray-700 text-white overflow-auto"
     >
-        <h2 class="text-center py-8 text-xl font-bold">MENU</h2>
-        <PanelMenu
-            v-model:expandedKeys="expandedKeys"
-            :model="items"
-            class="bg-[#111827] p-3 border-gray-300 rounded-md"
-        >
-            <template #header>
-                <i class="pi pi-fw pi-file"></i>
-                <span class="font-bold">Opción 1</span>
-            </template>
-            <template #model>
-                <PanelMenuItem :label="'Subopción 1'" />
-                <PanelMenuItem :label="'Subopción 2'" />
-            </template>
+        <h2 class="text-center py-6 text-xl font-bold">MENU</h2>
+        <PanelMenu v-model:expandedKeys="expandedKeys" :model="items">
+            <!-- <template #item="{ item }">
+                <PanelMenuItem :model="item" />
+            </template> -->
         </PanelMenu>
     </div>
 </template>
@@ -194,6 +186,7 @@ const expandNode = (node) => {
 export default {
     components: {
         PanelMenu,
+        PanelMenuItem,
     },
 };
 </script>
