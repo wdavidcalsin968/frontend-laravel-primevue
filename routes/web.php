@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -32,12 +33,18 @@ Route::get('/calendars', function () {
     return Inertia::render('Calendars');
 });
 
+Route::get('/formulario', function () {
+    return Inertia::render('Formulario');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
+        // dd(Auth::user()->name);
+        // return Inertia::render('Dashboard');
+        return Inertia::render('Dashboard', ['user' => Auth::user()]);
     })->name('dashboard');
 });

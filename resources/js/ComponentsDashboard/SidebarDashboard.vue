@@ -50,10 +50,10 @@ import { Link } from "@inertiajs/vue3";
                 </div>
 
                 <ul class="space-y-1.5 font-medium">
-                    <li>
+                    <li v-for="item in listItemsNavDashboard">
                         <Link
-                            href="/dashboard"
-                            class="flex items-center py-3 px-4 text-gray-900 rounded-md dark:text-white bg-white/10 hover:bg-white/10 dark:hover:bg-gray-700 gap-4 group"
+                            v-bind:href="`${item.slug}`"
+                            class="flex items-center py-3 px-4 text-gray-900 rounded-md dark:text-white hover:bg-white/10 dark:hover:bg-gray-700 gap-4 group"
                         >
                             <svg
                                 aria-hidden="true"
@@ -63,69 +63,17 @@ import { Link } from "@inertiajs/vue3";
                                 viewBox="0 0 576 512"
                             >
                                 <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path
-                                    d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
-                                />
+                                <path v-bind:d="`${item.svgPath}`" />
                             </svg>
                             <div class="group">
                                 <span
-                                    class="text-gray-300 text-sm font-bold hover:text-white group-hover:text-white"
-                                    >Inicio</span
+                                    class="text-gray-300 text-sm font-bold hover:text-white group-hover:text-white capitalize"
+                                    >{{ item.name }}</span
                                 >
                             </div>
                         </Link>
                     </li>
 
-                    <li>
-                        <Link
-                            href="/datatable"
-                            class="flex items-center py-3 px-4 text-gray-900 rounded-lg dark:text-white hover:bg-white/10 dark:hover:bg-gray-700 gap-4 group"
-                        >
-                            <svg
-                                aria-hidden="true"
-                                class="w-7 h-7 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 512 512"
-                            >
-                                <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path
-                                    d="M64 256V160H224v96H64zm0 64H224v96H64V320zm224 96V320H448v96H288zM448 256H288V160H448v96zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"
-                                />
-                            </svg>
-                            <div class="group">
-                                <span
-                                    class="text-gray-300 text-sm font-bold hover:text-white group-hover:text-white"
-                                    >Datatable</span
-                                >
-                            </div>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/calendars"
-                            class="flex items-center py-3 px-4 text-gray-900 rounded-lg dark:text-white hover:bg-white/10 dark:hover:bg-gray-700 gap-4 group"
-                        >
-                            <svg
-                                aria-hidden="true"
-                                class="w-7 h-7 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 448 512"
-                            >
-                                <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path
-                                    d="M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z"
-                                />
-                            </svg>
-                            <div class="group">
-                                <span
-                                    class="text-gray-300 text-sm font-bold hover:text-white group-hover:text-white"
-                                    >Calendars</span
-                                >
-                            </div>
-                        </Link>
-                    </li>
                     <li>
                         <a
                             href="#"
@@ -176,31 +124,7 @@ import { Link } from "@inertiajs/vue3";
                             </div>
                         </a>
                     </li>
-                    <li>
-                        <a
-                            href="#"
-                            class="flex items-center py-3 px-4 text-gray-900 rounded-lg dark:text-white hover:bg-white/10 dark:hover:bg-gray-700 gap-4 group"
-                        >
-                            <svg
-                                aria-hidden="true"
-                                class="w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-white"
-                                fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 576 512"
-                            >
-                                <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path
-                                    d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V285.7l-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"
-                                />
-                            </svg>
-                            <div class="group">
-                                <span
-                                    class="text-gray-300 text-sm font-bold hover:text-white group-hover:text-white"
-                                    >Formulario</span
-                                >
-                            </div>
-                        </a>
-                    </li>
+
                     <li>
                         <a
                             href="#"
@@ -257,7 +181,7 @@ import { Link } from "@inertiajs/vue3";
                             <div class="group">
                                 <span
                                     class="text-gray-300 text-sm font-bold hover:text-white group-hover:text-white"
-                                    >Universidad</span
+                                    >{{ Universidad }}</span
                                 >
                             </div>
                         </a>
@@ -511,6 +435,54 @@ const expandNode = (node) => {
 };
 
 export default {
+    data() {
+        return {
+            listItemsNavDashboard: [
+                {
+                    name: "inicio",
+                    slug: "/dashboard",
+                    svgPath:
+                        "M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z",
+                },
+                {
+                    name: "datatable",
+                    slug: "/datatable",
+                    svgPath:
+                        "M64 256V160H224v96H64zm0 64H224v96H64V320zm224 96V320H448v96H288zM448 256H288V160H448v96zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z",
+                },
+                {
+                    name: "calendars",
+                    slug: "/calendars",
+                    svgPath:
+                        "M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z",
+                },
+                {
+                    name: "formulario",
+                    slug: "/formulario",
+                    svgPath:
+                        "M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V285.7l-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z",
+                },
+            ],
+            listItemsNavAplications: [
+                {
+                    name: "inicio",
+                    slug: "/dashboard",
+                },
+                {
+                    name: "datatable",
+                    slug: "/datatable",
+                },
+                {
+                    name: "calendars",
+                    slug: "/calendars",
+                },
+                {
+                    name: "formulario",
+                    slug: "/formulario",
+                },
+            ],
+        };
+    },
     components: {
         PanelMenu,
         PanelMenuItem,

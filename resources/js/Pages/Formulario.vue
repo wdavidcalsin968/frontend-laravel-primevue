@@ -4,14 +4,13 @@ import Welcome from "@/Components/Welcome.vue";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Button from "primevue/button";
-import Dialog from "primevue/dialog";
 </script>
 
 <template>
     <AppLayout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Datatable
+                Formulario
             </h2>
         </template>
 
@@ -21,40 +20,16 @@ import Dialog from "primevue/dialog";
             >
                 <!-- <Welcome /> -->
                 <h2 class="uppercase text-3xl font-bold text-gray-800">
-                    Datatable
+                    Formulario
                 </h2>
                 <div class="flex justify-end gap-3">
-                    <Button
-                        icon="pi pi-file-pdf"
-                        severity="danger"
-                        outlined
-                        @click="visible = true"
-                    />
+                    <Button icon="pi pi-file-pdf" severity="danger" outlined />
                     <Button
                         icon="pi pi-file-excel"
                         severity="success"
                         outlined
                     />
                     <Button icon="pi pi-code" outlined />
-
-                    <Dialog
-                        v-model:visible="visible"
-                        modal
-                        header="Header"
-                        :style="{ width: '50vw' }"
-                    >
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore
-                            eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia
-                            deserunt mollit anim id est laborum.
-                        </p>
-                    </Dialog>
                 </div>
                 <div class="card">
                     <DataTable
@@ -98,10 +73,6 @@ import Dialog from "primevue/dialog";
 </template>
 
 <script>
-import { ref } from "vue";
-
-const visible = ref(false);
-
 export default {
     components: {
         Button,

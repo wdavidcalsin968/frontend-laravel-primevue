@@ -14,7 +14,7 @@ import SidebarDashboard from "../ComponentsDashboard/SidebarDashboard.vue";
         <Banner />
 
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900 rounded-0">
-            <NabvarDashboard />
+            <NabvarDashboard userName="{{ userName }}" />
             <SidebarDashboard />
             <main class="pl-0 md:pl-72 pt-20 bg-white">
                 <div class="p-3">
@@ -24,3 +24,11 @@ import SidebarDashboard from "../ComponentsDashboard/SidebarDashboard.vue";
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    props: {
+        userName: String,
+    },
+};
+</script>

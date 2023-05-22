@@ -1,6 +1,6 @@
 <script setup>
 import { router } from "@inertiajs/vue3";
-import { Link } from "@inertiajs/vue3";
+import { Link, Head } from "@inertiajs/vue3";
 import Menubar from "primevue/menubar";
 import Button from "primevue/button";
 import Sidebar from "primevue/sidebar";
@@ -192,8 +192,8 @@ const logout = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <a
-                                        href="#"
+                                    <Link
+                                        href="/formulario"
                                         class="flex items-center py-3 px-4 text-gray-900 rounded-lg hover:bg-white/10 dark:hover:bg-gray-700 gap-4 group"
                                     >
                                         <svg
@@ -214,7 +214,7 @@ const logout = () => {
                                                 >Formulario</span
                                             >
                                         </div>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a
@@ -333,12 +333,18 @@ const logout = () => {
                             class="w-full p-link flex gap-3 items-center text-color hover:surface-200 border-noround"
                         >
                             <Avatar
-                                image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png"
+                                image="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
                                 class="ml-2"
                                 shape="circle"
                             />
                             <div class="flex flex-col">
-                                <span class="font-bold">Amy Elsner</span>
+                                <!-- <span class="font-bold uppercase">{{
+                                    user.name
+                                }}</span> -->
+                                <span class="font-bold uppercase">{{
+                                    $page.props.auth.user.name
+                                }}</span>
+
                                 <span class="text-sm">Agent</span>
                             </div>
                         </button>
@@ -388,6 +394,9 @@ const items = ref([
 ]);
 
 export default {
+    props: {
+        userName: String,
+    },
     components: {
         Menubar,
         Menu,
