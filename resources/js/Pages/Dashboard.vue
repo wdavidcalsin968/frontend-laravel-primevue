@@ -19,9 +19,17 @@ defineProps({ user: Array });
                 class="bg-white min-h-screen overflow-hidden shadow-xl sm:rounded-lg p-4 flex flex-col gap-7"
             >
                 <!-- <Welcome /> -->
-                <h2 class="uppercase text-3xl font-bold">
-                    Bienvenidos a Dashboard
+                <h2 class="uppercase text-3xl text-center font-bold">
+                    Bienvenidos al sistema 
+                    <span class="font-bold uppercase">{{
+                        $page.props.auth.user.name
+                    }}</span>
                 </h2>
+                <div class="pb-6 relative flex py-0 items-center">
+                    <div class="flex-grow border-t border-gray-400"></div>
+                        <span class="flex-shrink mx-4 text-gray-400">Ingenieria de Sistemas</span>
+                    <div class="flex-grow border-t border-gray-400"></div>
+                </div>
                 <div class="flex gap-4">
                     <Chart
                         type="bar"

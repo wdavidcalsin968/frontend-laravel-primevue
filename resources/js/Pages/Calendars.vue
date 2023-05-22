@@ -19,7 +19,7 @@ import Column from "primevue/column";
                 class="bg-white min-h-screen overflow-hidden shadow-xl sm:rounded-lg p-4 flex flex-col gap-8"
             >
                 <!-- <Welcome /> -->
-                <h2 class="uppercase text-3xl font-bold text-gray-800">
+                <h2 class="uppercase text-3xl text-center font-bold text-gray-800">
                     Calendarios
                 </h2>
                 <div class="card flex gap-4 flex-wrap">

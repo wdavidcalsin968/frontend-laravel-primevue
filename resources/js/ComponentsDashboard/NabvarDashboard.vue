@@ -57,10 +57,10 @@ const logout = () => {
                         <div class="flex flex-col gap-4">
                             <div class="ml-4 leading-4">
                                 <h2 class="text-[#818CF8] font-bold">
-                                    Dashboards
+                                    Sistema
                                 </h2>
                                 <span class="text-[#878B95] text-xs"
-                                    >Unico diseño de dashboard
+                                    >Diseño de dashboard del Sistema
                                 </span>
                             </div>
 
