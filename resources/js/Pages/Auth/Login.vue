@@ -85,7 +85,12 @@ const submit = () => {
                             <Checkbox v-model:checked="form.remember" name="remember" />
                             <span class="ml-2 text-sm text-gray-600">Remember me</span>
                         </label>
+                    
                     </div>
+                    <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Forgot your password?
+                    </Link>
+                    
 
                     <div class="flex flex-col gap-2">
                         <PrimaryButton class="w-full inline-block pt-2 pr-5 pb-2 pl-5 text-xl font-medium text-center text-white bg-indigo-500 rounded-lg transition duration-200 hover:bg-indigo-600 ease" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -98,16 +103,22 @@ const submit = () => {
                             OR
                             </p>
                         </div>
-                        <PrimaryButton class="w-full inline-block pt-2 pr-5 pb-2 pl-5 text-xl font-medium text-center text-white bg-indigo-500 rounded-lg transition duration-200 hover:bg-indigo-600 ease" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                            Facebook
+                        <PrimaryButton class="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
+                                     hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                            <div class="relative flex items-center space-x-4 justify-center">
+                                 <img src="https://upload.wikimedia.org/wikipedia/en/0/04/Facebook_f_logo_%282021%29.svg" class="absolute left-0 w-5" alt="Facebook logo">
+                                <span class="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue with Facebook</span>
+                            </div>
                         </PrimaryButton>
-                        <PrimaryButton class="w-full inline-block pt-2 pr-5 pb-2 pl-5 text-xl font-medium text-center text-white bg-indigo-500 rounded-lg transition duration-200 hover:bg-indigo-600 ease" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                            Google
+                        <PrimaryButton class="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
+ hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                            <div class="relative flex items-center space-x-4 justify-center">
+                                <img src="https://tailus.io/sources/blocks/social/preview/images/google.svg" class="absolute left-0 w-5" alt="google logo">
+                                <span class="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue with Google</span>
+                            </div>
                         </PrimaryButton>
 
-                        <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Forgot your password?
-                        </Link>
+                        
                     </div>
                 </div>
             </div>
