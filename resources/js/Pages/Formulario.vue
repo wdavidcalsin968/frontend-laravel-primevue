@@ -1,12 +1,12 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import Welcome from "@/Components/Welcome.vue";
-import DataTable from "primevue/datatable";
-import Column from "primevue/column";
 import Button from "primevue/button";
 import InputText from 'primevue/inputtext';
 import AutoComplete from 'primevue/autocomplete';
 import Calendar from 'primevue/calendar';
+import Password from 'primevue/password';
+
 </script>
 
 <template>
@@ -25,6 +25,12 @@ import Calendar from 'primevue/calendar';
                 <h2 class="uppercase text-3xl text-center font-bold text-gray-800">
                     Formulario
                 </h2>
+
+                <div class="pb-6 relative flex py-0 items-center">
+                    <div class="flex-grow border-t border-gray-400"></div>
+                        <span class="flex-shrink mx-4 text-gray-400">Llenar el formulario correctamente</span>
+                    <div class="flex-grow border-t border-gray-400"></div>
+                </div>
                 
                 <h:form>
                     <div class="flex flex-col gap-6">
@@ -32,7 +38,7 @@ import Calendar from 'primevue/calendar';
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <div class=" flex-auto ">
                                     <span class="p-float-label">
-                                        <InputText class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="username" v-model="value" />
+                                        <InputText class="w-full" id="username" v-model="value" />
                                         <label for="username">Nombres</label>
                                     </span>
                                 </div>
@@ -41,7 +47,7 @@ import Calendar from 'primevue/calendar';
                             <div class=" w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <div class=" flex-auto ">
                                     <span class="p-float-label">
-                                        <InputText class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="username" v-model="value" />
+                                        <InputText class="w-full" id="username" v-model="value" />
                                         <label for="username">Apellido Paterno</label>
                                     </span>
                                 </div>
@@ -50,27 +56,35 @@ import Calendar from 'primevue/calendar';
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <div class=" flex-auto">
                                     <span class="p-float-label">
-                                        <InputText class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="username" v-model="value" />
+                                        <InputText class="w-full" id="username" v-model="value" />
                                         <label for="username">Apellido Materno</label>
                                     </span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class=" flex flex-wrap -mx-3 mb-2 ">       
-                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <div class=" flex flex-wrap -mx-3 mb-2 ">
+                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                <div class=" flex-auto">
+                                    <span class="p-float-label">
+                                        <InputText class="w-full" id="username" v-model="value" />
+                                        <label for="username">DNI</label>
+                                    </span>
+                                </div>
+                            </div>         
+                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <div class=" flex-auto ">
                                     <span class="p-float-label">
-                                        <InputText class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="username" v-model="value" />
+                                        <InputText class="w-full" id="username" v-model="value" />
                                         <label for="username">Correo Electronico</label>
                                     </span>
                                 </div>
                                 
                             </div>
-                            <div class=" w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <div class=" w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <div class=" flex-auto ">
                                     <span class="p-float-label">
-                                        <InputText class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="username" v-model="value" />
+                                        <InputText class="w-full" id="username" v-model="value" />
                                         <label for="username">N° Celular o Telefono</label>
                                     </span>
                                 </div>
@@ -78,7 +92,15 @@ import Calendar from 'primevue/calendar';
                             </div>
                         </div>
 
-                        <div class=" flex flex-wrap -mx-3 mb-2 ">       
+                        <div class=" flex flex-wrap -mx-3 mb-2 ">
+                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                <div class=" flex-auto">
+                                    <span class="p-float-label">
+                                        <InputText class="w-full" id="username" v-model="value" />
+                                        <label for="username">Descripción</label>
+                                    </span>
+                                </div>
+                            </div>      
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <div class=" flex-auto ">
                                     <span class="p-float-label">
@@ -94,21 +116,28 @@ import Calendar from 'primevue/calendar';
                                         <Calendar class="w-full" v-model="date2" showIcon />
                                     </span>
                                 </div>
-                                
+                            </div>
+                        </div>
+
+                        <div class=" flex flex-wrap -mx-3 mb-2 ">
+                                   
+                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                <span class="p-float-label">
+                                    <Password  v-model="value" inputId="password" toggleMask />
+                                    <label for="password">Password</label>
+                                </span>
                             </div>
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <div class=" flex-auto">
-                                    <span class="p-float-label">
-                                        <InputText class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="username" v-model="value" />
-                                        <label for="username">DNI</label>
-                                    </span>
-                                </div>
+                                <span class="p-float-label">
+                                    <Password v-model="value" inputId="password" toggleMask />
+                                    <label for="password">Confirm Password</label>
+                                </span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="flex flex-col gap-6 ">
-                            <div class="flex flex-col md:w-1/3 py-10">
+                            <div class="flex flex-col items-center py-10">
                                 <Button
                                     label="Guardar"
                                     severity="success"
@@ -147,11 +176,11 @@ maxDate.value.setFullYear(nextYear);
 
 export default {
     components: {
-        Calendar,
-    },
-    components: {
         Button,
         InputText,
+        AutoComplete,
+        Calendar,
+        Password,
     },
 };
 
