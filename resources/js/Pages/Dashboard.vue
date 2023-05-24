@@ -172,9 +172,9 @@ defineProps({ user: Array });
                 <!-- <Welcome /> -->
                 <h2 class="uppercase text-3xl text-center font-bold">
                     Bienvenidos al sistema
-                    <span class="font-bold uppercase">{{
+                    <!-- <span class="font-bold uppercase">{{
                         $page.props.auth.user.name
-                    }}</span>
+                    }}</span> -->
                 </h2>
                 <div class="pb-6 relative flex py-0 items-center">
                     <div class="flex-grow border-t border-gray-400"></div>
@@ -224,26 +224,6 @@ defineProps({ user: Array });
                         </a>
                     </div>
                 </div>
-
-                <div class="text-black p-2">
-                    <h2 class="uppercase font-bold">Count: {{ count }}</h2>
-                    <div class="flex gap-3">
-                        <button
-                            @click="count++"
-                            class="p-2 bg-blue-600 rounded-md text-white"
-                        >
-                            increment
-                        </button>
-                        <button
-                            @click="count--"
-                            class="p-2 bg-blue-600 rounded-md text-white"
-                        >
-                            decrement
-                        </button>
-                    </div>
-                </div>
-
-                <!-- <Button label="Check" icon="pi pi-check" /> -->
             </div>
         </div>
     </AppLayout>

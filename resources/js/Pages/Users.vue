@@ -4,6 +4,7 @@ import Welcome from "@/Components/Welcome.vue";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Button from "primevue/button";
+import InputText from "primevue/inputtext";
 import Dialog from "primevue/dialog";
 </script>
 
@@ -30,40 +31,72 @@ import Dialog from "primevue/dialog";
                         icon="pi pi-users"
                         severity="success"
                         label="Registrar"
+                        @click="visible = true"
                     />
+                    <Dialog
+                        v-model:visible="visible"
+                        modal
+                        header=" "
+                        :style="{ width: '50vw' }"
+                    >
+                        <CustomForm />
+                    </Dialog>
                 </div>
                 <div class="card">
                     <DataTable
+                        v-model:editingRows="editingRows"
+                        editMode="row"
                         :value="customers"
                         paginator
                         :rows="7"
                         :rowsPerPageOptions="[5, 10, 20, 50]"
                         tableStyle="min-width: 50rem"
+                        @row-edit-save="onRowEditSave"
                     >
                         <Column
                             field="name"
-                            header="Name"
+                            header="Nombre"
                             style="width: 25%"
                             sortable
-                        ></Column>
+                        >
+                            <template #editor="{ data, field }">
+                                <InputText v-model="data[field]" />
+                            </template>
+                        </Column>
                         <Column
-                            field="country.name"
-                            header="Country"
+                            field="country"
+                            header="Pais"
                             style="width: 25%"
                             sortable
-                        ></Column>
+                        >
+                            <template #editor="{ data, field }">
+                                <InputText v-model="data[field]" />
+                            </template>
+                        </Column>
                         <Column
                             field="company"
-                            header="Company"
+                            header="Empresa"
                             style="width: 25%"
                             sortable
+                        >
+                            <template #editor="{ data, field }">
+                                <InputText v-model="data[field]" /> </template
                         ></Column>
                         <Column
-                            field="representative.name"
+                            field="representative"
                             header="Representative"
                             style="width: 25%"
                             sortable
+                        >
+                            <template #editor="{ data, field }">
+                                <InputText v-model="data[field]" /> </template
                         ></Column>
+                        <Column
+                            :rowEditor="true"
+                            style="width: 10%; min-width: 8rem"
+                            bodyStyle="text-align:center"
+                        >
+                        </Column>
                     </DataTable>
                 </div>
 
@@ -74,10 +107,157 @@ import Dialog from "primevue/dialog";
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import HeaderCard from "../SubComponents/HeaderCard.vue";
+import CustomForm from "../SubComponents/CustomForm.vue";
 
 const visible = ref(false);
+const editingRows = ref([]);
+const customers = ref([
+    {
+        name: "John Doe",
+        country: "United States",
+        company: "ABC Inc.",
+        representative: "Jane Smith",
+    },
+    {
+        name: "Alice Brown",
+        country: "Canada",
+        company: "XYZ Corp.",
+        representative: "Bob Johnson",
+    },
+    {
+        name: "John Doe",
+
+        country: "United States",
+
+        company: "ABC Inc.",
+
+        representative: "Jane Smith",
+    },
+
+    {
+        name: "Alice Brown",
+
+        country: "Canada",
+
+        company: "XYZ Corp.",
+
+        representative: "Bob Johnson",
+    },
+
+    {
+        name: "Mary Smith",
+
+        country: "Australia",
+
+        company: "DEF Corp.",
+
+        representative: "John Adams",
+    },
+
+    {
+        name: "David Lee",
+
+        country: "South Korea",
+
+        company: "GHI Inc.",
+
+        representative: "Sarah Kim",
+    },
+
+    {
+        name: "Juan Perez",
+
+        country: "Mexico",
+
+        company: "JKL Corp.",
+
+        representative: "Maria Garcia",
+    },
+
+    {
+        name: "Mohammed Ali",
+
+        country: "Egypt",
+
+        company: "MNO Inc.",
+
+        representative: "Fatima Ahmed",
+    },
+
+    {
+        name: "Hans Schmidt",
+
+        country: "Germany",
+
+        company: "PQR Corp.",
+
+        representative: "Anna Mueller",
+    },
+
+    {
+        name: "Yuki Nakamura",
+
+        country: "Japan",
+
+        company: "STU Inc.",
+
+        representative: "Taro Yamada",
+    },
+
+    {
+        name: "Maria Rodriguez",
+
+        country: "Spain",
+
+        company: "VWX Corp.",
+
+        representative: "Carlos Sanchez",
+    },
+
+    {
+        name: "Lena Svensson",
+
+        country: "Sweden",
+
+        company: "YZA Inc.",
+
+        representative: "Erik Johansson",
+    },
+]);
+
+// onMounted(() => {
+//     ProductService.getProductsMini().then((data) => (products.value = data));
+// });
+
+const onRowEditSave = (event) => {
+    let { newData, index } = event;
+
+    customers.value[index] = newData;
+};
+
+const getStatusLabel = (status) => {
+    switch (status) {
+        case "INSTOCK":
+            return "success";
+
+        case "LOWSTOCK":
+            return "warning";
+
+        case "OUTOFSTOCK":
+            return "danger";
+
+        default:
+            return null;
+    }
+};
+const formatCurrency = (value) => {
+    return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    }).format(value);
+};
 
 export default {
     components: {
@@ -86,124 +266,14 @@ export default {
     data() {
         return {
             count: 0,
-            customers: [
-                {
-                    name: "John Doe",
-                    country: { name: "United States" },
-                    company: "ABC Inc.",
-                    representative: { name: "Jane Smith" },
-                },
-                {
-                    name: "Alice Brown",
-                    country: { name: "Canada" },
-                    company: "XYZ Corp.",
-                    representative: { name: "Bob Johnson" },
-                },
-                {
-                    name: "John Doe",
-
-                    country: { name: "United States" },
-
-                    company: "ABC Inc.",
-
-                    representative: { name: "Jane Smith" },
-                },
-
-                {
-                    name: "Alice Brown",
-
-                    country: { name: "Canada" },
-
-                    company: "XYZ Corp.",
-
-                    representative: { name: "Bob Johnson" },
-                },
-
-                {
-                    name: "Mary Smith",
-
-                    country: { name: "Australia" },
-
-                    company: "DEF Corp.",
-
-                    representative: { name: "John Adams" },
-                },
-
-                {
-                    name: "David Lee",
-
-                    country: { name: "South Korea" },
-
-                    company: "GHI Inc.",
-
-                    representative: { name: "Sarah Kim" },
-                },
-
-                {
-                    name: "Juan Perez",
-
-                    country: { name: "Mexico" },
-
-                    company: "JKL Corp.",
-
-                    representative: { name: "Maria Garcia" },
-                },
-
-                {
-                    name: "Mohammed Ali",
-
-                    country: { name: "Egypt" },
-
-                    company: "MNO Inc.",
-
-                    representative: { name: "Fatima Ahmed" },
-                },
-
-                {
-                    name: "Hans Schmidt",
-
-                    country: { name: "Germany" },
-
-                    company: "PQR Corp.",
-
-                    representative: { name: "Anna Mueller" },
-                },
-
-                {
-                    name: "Yuki Nakamura",
-
-                    country: { name: "Japan" },
-
-                    company: "STU Inc.",
-
-                    representative: { name: "Taro Yamada" },
-                },
-
-                {
-                    name: "Maria Rodriguez",
-
-                    country: { name: "Spain" },
-
-                    company: "VWX Corp.",
-
-                    representative: { name: "Carlos Sanchez" },
-                },
-
-                {
-                    name: "Lena Svensson",
-
-                    country: { name: "Sweden" },
-
-                    company: "YZA Inc.",
-
-                    representative: { name: "Erik Johansson" },
-                },
-            ],
         };
     },
     components: {
         DataTable,
         HeaderCard,
+        InputText,
+        Dialog,
+        CustomForm,
     },
 };
 </script>
