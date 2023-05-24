@@ -17,23 +17,27 @@ import Password from "primevue/password";
         </template>
 
         <div>
+            <div class="py-0 container max-w-full m-auto flex flex-wrap flex-col md:flex-row items-center justify-start">
+                <div class="w-full lg:w-1/1 p-5">
+                    <div class="flex flex-col lg:flex-row-reverse rounded overflow-hidden h-auto lg:h-32 border shadow-lg">
+                    <img class="block h-auto w-full lg:w-44 flex-none bg-cover" src="/Sistemas.png">
+                    <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-6 flex flex-col justify-between leading-normal">
+                        <div class="text-gray-800 font-bold text-4xl text-center mb-2 leading-tight">FORMULARIO</div>
+                        <p class="text-grey-darker text-base">Uso de Componentes</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
             <div
-                class="bg-white min-h-screen overflow-hidden shadow-xl sm:rounded-lg p-4 flex flex-col gap-8"
+                class="bg-white min-h-full overflow-hidden shadow-xl sm:rounded-lg p-4 flex flex-col border gap-8"
             >
                 <!-- <Welcome /> -->
                 <h2
-                    class="uppercase text-3xl text-center font-bold text-gray-800"
+                    class="py-2 uppercase text-3xl text-center font-bold text-gray-800"
                 >
-                    Formulario
+                    Ingresar Formulario
                 </h2>
-
-                <div class="pb-6 relative flex py-0 items-center">
-                    <div class="flex-grow border-t border-gray-400"></div>
-                    <span class="flex-shrink mx-4 text-gray-400"
-                        >Llenar el formulario correctamente</span
-                    >
-                    <div class="flex-grow border-t border-gray-400"></div>
-                </div>
 
                 <h:form>
                     <div class="flex flex-col gap-10">

@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
+import Welcome from "@/Components/Welcome.vue";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Button from "primevue/button";
@@ -15,47 +16,37 @@ import Dialog from "primevue/dialog";
         </template>
 
         <div>
-            <div
-                class="bg-white min-h-screen overflow-hidden shadow-xl sm:rounded-lg p-4 flex flex-col gap-8"
-            >
-                <!-- <Welcome /> -->
-                <h2
-                    class="uppercase text-3xl text-center font-bold text-gray-800"
-                >
-                    Datatable
-                </h2>
-                <div class="flex justify-end gap-3">
-                    <Button
-                        icon="pi pi-file-pdf"
-                        severity="danger"
-                        outlined
-                        @click="visible = true"
-                    />
-                    <Button
-                        icon="pi pi-file-excel"
-                        severity="success"
-                        outlined
-                    />
-                    <Button icon="pi pi-code" outlined />
+            
+            <div class="py-0 container max-w-full m-auto flex flex-wrap flex-col md:flex-row items-center justify-start">
+                <div class="w-full lg:w-1/1 p-5">
+                    <div class="flex flex-col lg:flex-row-reverse rounded overflow-hidden h-auto lg:h-32 border shadow-lg">
+                    <img class="block h-auto w-full lg:w-44 flex-none bg-cover" src="/Sistemas.png">
+                    <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-6 flex flex-col justify-between leading-normal">
+                        <div class="text-gray-800 font-bold text-4xl text-center mb-2 leading-tight">USERS</div>
+                        <p class="text-grey-darker text-base">Uso de Componentes</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
 
-                    <Dialog
-                        v-model:visible="visible"
-                        modal
-                        header="Header"
-                        :style="{ width: '50vw' }"
-                    >
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore
-                            eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia
-                            deserunt mollit anim id est laborum.
-                        </p>
-                    </Dialog>
+            
+
+            <div
+                class="bg-white min-h-full overflow-hidden shadow-xl sm:rounded-lg p-4 flex flex-col border gap-8"
+            >
+            <h2
+                class="py-2 text-3xl text-center font-bold text-gray-800"
+            >
+                Registrar y Editar Users
+            </h2>
+                
+                <div class="flex justify gap-3">
+                    <Button
+                        icon="pi pi-users"
+                        severity="success"
+                        label="Registrar"
+                    />
+                
                 </div>
                 <div class="card">
                     <DataTable
@@ -91,6 +82,8 @@ import Dialog from "primevue/dialog";
                         ></Column>
                     </DataTable>
                 </div>
+
+                <!-- <Button label="Check" icon="pi pi-check" /> -->
             </div>
         </div>
     </AppLayout>

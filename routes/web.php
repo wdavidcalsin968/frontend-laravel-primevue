@@ -37,6 +37,10 @@ Route::get('/formulario', function () {
     return Inertia::render('Formulario');
 });
 
+Route::get('/users', function () {
+    return Inertia::render('Users');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
