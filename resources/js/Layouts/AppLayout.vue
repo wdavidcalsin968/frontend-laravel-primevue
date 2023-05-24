@@ -19,6 +19,7 @@ import SidebarDashboard from "../ComponentsDashboard/SidebarDashboard.vue";
             <main class="pl-0 md:pl-72 pt-20 bg-white">
                 <div class="p-3">
                     <slot />
+                    
                 </div>
             </main>
         </div>

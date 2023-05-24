@@ -127,7 +127,7 @@ const customers = ref([
         representative: "Bob Johnson",
     },
     {
-        name: "John Doe",
+        name: "Juan Quispe",
 
         country: "United States",
 
@@ -137,7 +137,7 @@ const customers = ref([
     },
 
     {
-        name: "Alice Brown",
+        name: "Pedro Mamani",
 
         country: "Canada",
 
