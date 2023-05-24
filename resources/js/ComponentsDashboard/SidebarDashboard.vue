@@ -2,16 +2,13 @@
 import PanelMenu from "primevue/panelmenu";
 import PanelMenuItem from "primevue/panelmenu";
 import { Link } from "@inertiajs/vue3";
+import NavOptions from "../SubComponents/NavOptions.vue";
 </script>
 
 <template>
     <div
         class="w-72 bg-[#4B4D5A] h-screen fixed top-0 left-0 hidden md:block border-r-[1px] border-gray-700 text-white overflow-auto z-50"
     >
-        <!-- <h2 class="text-center py-6 text-xl font-bold">MENU</h2> -->
-        <!-- <PanelMenu v-model:expandedKeys="expandedKeys" :model="items">
-            
-        </PanelMenu> -->
         <div
             class="w-full h-full py-4 overflow-y-auto bg-[#0F172A] px-3 flex flex-col gap-10"
         >
@@ -40,74 +37,7 @@ import { Link } from "@inertiajs/vue3";
                     </span>
                 </div>
             </div>
-
-            <div class="flex flex-col gap-4">
-                <div class="ml-4 leading-4">
-                    <h2 class="text-[#818CF8] font-bold">Apliacaciones</h2>
-                    <span class="text-[#878B95] text-xs"
-                        >Customizacion de componentes
-                    </span>
-                </div>
-
-                <ul class="space-y-1.5 font-medium">
-                    <li v-for="item in listItemsNavDashboard">
-                        <Link
-                            v-bind:href="`${item.slug}`"
-                            class="flex items-center py-3 px-4 text-gray-900 rounded-md dark:text-white hover:bg-white/10 dark:hover:bg-gray-700 gap-4 group"
-                        >
-                            <svg
-                                aria-hidden="true"
-                                class="w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-white"
-                                fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 576 512"
-                            >
-                                <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path v-bind:d="`${item.svgPath}`" />
-                            </svg>
-                            <div class="group">
-                                <span
-                                    class="text-gray-300 text-sm font-bold hover:text-white group-hover:text-white capitalize"
-                                    >{{ item.name }}</span
-                                >
-                            </div>
-                        </Link>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex flex-col gap-4">
-                <div class="ml-4 leading-4">
-                    <h2 class="text-[#818CF8] font-bold">Otroas Aplicaciones</h2>
-                    <span class="text-[#878B95] text-xs"
-                        >Customizacion de componentes</span
-                    >
-                </div>
-                <ul class="space-y-1.5 font-medium">
-                    <li v-for="item in listItemsNavAplications">
-                        <Link
-                            v-bind:href="`${item.slug}`"
-                            class="flex items-center py-3 px-4 text-gray-900 rounded-md dark:text-white hover:bg-white/10 dark:hover:bg-gray-700 gap-4 group"
-                        >
-                            <svg
-                                aria-hidden="true"
-                                class="w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-white"
-                                fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 576 512"
-                            >
-                                <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path v-bind:d="`${item.svgPath}`" />
-                            </svg>
-                            <div class="group">
-                                <span
-                                    class="text-gray-300 text-sm font-bold hover:text-white group-hover:text-white capitalize"
-                                    >{{ item.name }}</span
-                                >
-                            </div>
-                        </Link>
-                    </li>
-                </ul>
-            </div>
+            <NavOptions isMobile="false" />
         </div>
     </div>
 </template>
@@ -288,7 +218,7 @@ export default {
                     svgPath:
                         "M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z",
                 },
-                
+
                 {
                     name: "usuarios",
                     slug: "/#",

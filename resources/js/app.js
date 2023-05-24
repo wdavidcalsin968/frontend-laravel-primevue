@@ -12,6 +12,8 @@ import "primevue/resources/primevue.min.css";
 import 'primeicons/primeicons.css';
 
 import PrimeVue from 'primevue/config';
+import Button from 'primevue/button';
+import Calendar from 'primevue/calendar';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
