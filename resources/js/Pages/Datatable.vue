@@ -5,6 +5,7 @@ import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Button from "primevue/button";
 import Dialog from "primevue/dialog";
+import HeaderCard from "../SubComponents/HeaderCard.vue";
 </script>
 
 <template>
@@ -16,30 +17,14 @@ import Dialog from "primevue/dialog";
         </template>
 
         <div>
-            
-            <div class="py-0 container max-w-full m-auto flex flex-wrap flex-col md:flex-row items-center justify-start">
-                <div class="w-full lg:w-1/1 p-5">
-                    <div class="flex flex-col lg:flex-row-reverse rounded overflow-hidden h-auto lg:h-32 border shadow-lg">
-                    <img class="block h-auto w-full lg:w-44 flex-none bg-cover" src="/Sistemas.png">
-                    <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-6 flex flex-col justify-between leading-normal">
-                        <div class="text-gray-800 font-bold text-4xl text-center mb-2 leading-tight">DATATABLE</div>
-                        <p class="text-grey-darker text-base">Uso de Componentes</p>
-                    </div>
-                    </div>
-                </div>
-            </div>
-
-            
-
+            <HeaderCard title="datatable" />
             <div
                 class="bg-white min-h-full overflow-hidden shadow-xl sm:rounded-lg p-4 flex flex-col border gap-8"
             >
-            <h2
-                class="py-2 text-3xl text-center font-bold text-gray-800"
-            >
-                DataTable Export
-            </h2>
-                
+                <h2 class="py-2 text-3xl text-center font-bold text-gray-800">
+                    DataTable Export
+                </h2>
+
                 <div class="flex justify-end gap-3">
                     <Button
                         icon="pi pi-file-pdf"
@@ -243,6 +228,7 @@ export default {
     },
     components: {
         DataTable,
+        HeaderCard,
     },
 };
 </script>

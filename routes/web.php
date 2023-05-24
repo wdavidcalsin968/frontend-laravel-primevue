@@ -39,7 +39,7 @@ Route::get('/formulario', function () {
 
 Route::get('/users', function () {
     return Inertia::render('Users');
-});
+})->name('users');
 
 Route::middleware([
     'auth:sanctum',
